@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <div class="home"></div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { createNamespacedHelpers } from "vuex";
+
+const products = createNamespacedHelpers("products");
 
 export default {
   name: "HomeView",
-  components: {
-    HelloWorld,
+
+  mounted() {
+    this.getProducts();
+  },
+
+  computed: {
+    ...products.mapGetters(["products"]),
+  },
+
+  methods: {
+    ...products.mapActions(["getProducts"]),
   },
 };
 </script>
