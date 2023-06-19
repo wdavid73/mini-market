@@ -21,30 +21,24 @@
     </div>
     <div class="cart__total">
       <span class="total-text">Total: </span
-      ><span class="price">${{ total }}</span>
+      ><span class="price">${{ total.toFixed(2) }}</span>
     </div>
     <div class="cart__pay">
-      <button
-        style="
-          background: blue;
-          border-radius: 12px;
-          color: white;
-          width: 150px;
-          height: 50px;
-        "
-      >
-        PAY
-      </button>
+      <CheckoutFake />
     </div>
   </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from "vuex";
+import CheckoutFake from "@/views/products/CheckoutFake.vue";
 const products = createNamespacedHelpers("products");
 
 export default {
   name: "CardProducts",
+  components: {
+    CheckoutFake,
+  },
 
   computed: {
     ...products.mapGetters(["cart", "total"]),
