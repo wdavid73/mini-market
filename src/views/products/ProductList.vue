@@ -26,20 +26,22 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-const products = createNamespacedHelpers("products");
+const { mapGetters, mapActions } = createNamespacedHelpers("products");
 export default {
   name: "ProductList",
   mounted() {
     this.getProducts();
-    this.checkProductInCart();
+    setTimeout(() => {
+      this.checkProductInCart();
+    }, "1000");
   },
 
   computed: {
-    ...products.mapGetters(["products", "cart", "total", "productSelected"]),
+    ...mapGetters(["products", "cart", "total", "productSelected"]),
   },
 
   methods: {
-    ...products.mapActions(["getProducts", "setProduct"]),
+    ...mapActions(["getProducts", "setProduct"]),
 
     selectProduct(index) {
       this.setProduct(index);

@@ -34,7 +34,7 @@ import ProductDetail from "@/views/products/ProductDetail.vue";
 import CartButton from "@/components/CartButton.vue";
 import Empty from "@/components/Empty.vue";
 
-const products = createNamespacedHelpers("products");
+const { mapGetters } = createNamespacedHelpers("products");
 
 export default {
   name: "HomeView",
@@ -48,7 +48,7 @@ export default {
   },
 
   computed: {
-    ...products.mapGetters(["show", "productSelected"]),
+    ...mapGetters(["show", "productSelected"]),
   },
   methods: {
     isObjectEmpty(objectName) {

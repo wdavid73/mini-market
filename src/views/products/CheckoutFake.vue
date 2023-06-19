@@ -4,7 +4,7 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-const products = createNamespacedHelpers("products");
+const { mapGetters } = createNamespacedHelpers("products");
 export default {
   name: "CheckoutFake",
 
@@ -27,7 +27,7 @@ export default {
   },
 
   computed: {
-    ...products.mapGetters(["total"]),
+    ...mapGetters(["total"]),
   },
 };
 </script>

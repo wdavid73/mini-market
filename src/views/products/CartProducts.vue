@@ -32,7 +32,7 @@
 <script>
 import { createNamespacedHelpers } from "vuex";
 import CheckoutFake from "@/views/products/CheckoutFake.vue";
-const products = createNamespacedHelpers("products");
+const { mapGetters } = createNamespacedHelpers("products");
 
 export default {
   name: "CardProducts",
@@ -41,7 +41,7 @@ export default {
   },
 
   computed: {
-    ...products.mapGetters(["cart", "total"]),
+    ...mapGetters(["cart", "total"]),
   },
 };
 </script>

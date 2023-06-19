@@ -42,16 +42,16 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-const products = createNamespacedHelpers("products");
+const { mapGetters, mapActions } = createNamespacedHelpers("products");
 export default {
   name: "ProductDetail",
 
   computed: {
-    ...products.mapGetters(["productSelected"]),
+    ...mapGetters(["productSelected"]),
   },
 
   methods: {
-    ...products.mapActions(["addCart", "minusOfCart"]),
+    ...mapActions(["addCart", "minusOfCart"]),
     add() {
       this.addCart({ product: this.productSelected });
     },
