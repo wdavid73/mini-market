@@ -31,6 +31,7 @@ export default {
   name: "ProductList",
   mounted() {
     this.getProducts();
+    this.checkProductInCart();
   },
 
   computed: {
@@ -42,6 +43,15 @@ export default {
 
     selectProduct(index) {
       this.setProduct(index);
+    },
+
+    checkProductInCart() {
+      this.products.forEach((product) => {
+        const index = this.cart.findIndex((item) => item.id == product.id);
+        if (index != -1) {
+          product["count"] = this.cart[index].count;
+        }
+      });
     },
   },
 };
