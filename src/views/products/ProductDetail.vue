@@ -51,23 +51,13 @@ export default {
   },
 
   methods: {
-    ...products.mapActions(["addCart"]),
+    ...products.mapActions(["addCart", "minusOfCart"]),
     add() {
       this.addCart({ product: this.productSelected });
-      /* if (this.count == 0) {
-        // count lo subo a 1
-        // agrego al carrito -> pasando el count
-      }
-
-      if (this.count > 0) {
-        // modifico el count del elemento en el carrito
-      } */
     },
 
     minus() {
-      if (this.count >= 0) {
-        this.count--;
-      }
+      this.minusOfCart({ product: this.productSelected });
     },
   },
 };

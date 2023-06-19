@@ -68,11 +68,12 @@ export default {
   align-items: center;
 
   &__icon {
-    width: 75px;
-    height: 70px;
+    width: 3%;
+    height: 2%;
     background-color: $color-primary;
     color: white;
-    font-size: 3rem;
+    padding: 5px;
+    font-size: 2.5rem;
     background: linear-gradient(
       150deg,
       rgba(112, 15, 149, 1) 0%,
@@ -84,7 +85,7 @@ export default {
 .home {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   align-content: center;
@@ -95,16 +96,34 @@ export default {
   }
 }
 .products {
-  width: 65%;
+  width: 60%;
+  @media (max-width: 810px) {
+    width: 100%;
+  }
+  @media (max-width: 435px) {
+    width: 100%;
+  }
   // height: 90vh;
 }
 .cart {
   width: 35%;
+  @media (max-width: 810px) {
+    width: 100%;
+  }
+  @media (max-width: 435px) {
+    width: 100%;
+  }
   // height: 90vh;
 }
 
 .details {
   width: 35%;
+  @media (max-width: 810px) {
+    width: 100%;
+  }
+  @media (max-width: 435px) {
+    width: 100%;
+  }
   // height: 55vh;
 }
 

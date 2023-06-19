@@ -1,7 +1,7 @@
 <template>
   <div class="button-container">
     <div class="button-container__btn-info" @click="showCart">
-      <i class="fa fa-shopping-cart icon-btn"></i> ${{ total }}
+      <i class="fa fa-shopping-cart icon-btn"></i> ${{ total.toFixed(2) }}
     </div>
     <button v-if="show" class="button-container__btn" @click="hideCart">
       <i class="fa fa-close"></i>

@@ -70,6 +70,15 @@ export default {
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   overflow: auto;
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 810px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 435px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
   &__item {
     border: 3.5px solid grey;
     height: 250px;

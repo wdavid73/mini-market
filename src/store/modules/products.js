@@ -40,9 +40,22 @@ export default {
         (element) => element.id == payload.id
       );
       if (existItemIndex != -1) {
-        state.cart[existItemIndex].count += parseInt(payload.count);
+        state.cart[existItemIndex].count = parseInt(payload.count);
       } else {
         state.cart.push(payload);
+      }
+    },
+
+    MINUS_OF_CART: (state, payload) => {
+      var existItemIndex = state.cart.findIndex(
+        (element) => element.id == payload.id
+      );
+      if (existItemIndex != -1) {
+        if (payload.count < state.cart[existItemIndex].count) {
+          state.cart[existItemIndex].count = payload.count;
+        } else if (payload.count == 0) {
+          state.cart.splice(existItemIndex, 1);
+        }
       }
     },
   },
@@ -63,12 +76,23 @@ export default {
       let count = 1;
       const index = state.cart.findIndex((element) => element.id == product.id);
       if (index != -1) {
-        product.count = product.count++;
-        console.log(product);
+        product.count++;
         commit("ADD_TO_CART", product);
       } else {
         product.count = count;
         commit("ADD_TO_CART", product);
+      }
+    },
+
+    minusOfCart({ commit, state }, { product }) {
+      const index = state.cart.findIndex((element) => element.id == product.id);
+      if (index != -1) {
+        if (product.count > 0) {
+          product.count--;
+        } else {
+          product.count = 0;
+        }
+        commit("MINUS_OF_CART", product);
       }
     },
 
